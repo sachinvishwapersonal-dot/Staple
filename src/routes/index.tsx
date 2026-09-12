@@ -249,37 +249,39 @@ function Index() {
         )}
 
         {/* Hero content */}
-        <div className="relative z-10 flex flex-1 flex-col justify-center px-5 py-8 sm:px-8 sm:py-12 md:justify-end md:px-12 md:pt-0 md:pb-24">
-          <div className="mx-auto w-full max-w-screen-2xl">
-            <div className="animate-fade-up mb-6 sm:mb-8 flex flex-wrap gap-2.5 sm:gap-3">
-              <Link
-                to="/omega-3"
-                className="group flex items-baseline gap-2 sm:gap-3 rounded-sm bg-accent px-3.5 py-1.5 sm:px-4 sm:py-2 text-[10px] sm:text-xs font-extrabold uppercase tracking-widest text-accent-foreground transition-opacity hover:opacity-90"
-              >
-                <span>01 Omega-3</span>
-                <span className="font-bold tracking-[0.14em] sm:tracking-[0.18em] opacity-75">
-                  EPA + DHA · 60 caps
-                </span>
-              </Link>
-              <Link
-                to="/magnesium"
-                className="group flex items-baseline gap-2 sm:gap-3 rounded-sm bg-lavender px-3.5 py-1.5 sm:px-4 sm:py-2 text-[10px] sm:text-xs font-extrabold uppercase tracking-widest text-foreground transition-opacity hover:opacity-90"
-              >
-                <span>02 Magnesium</span>
-                <span className="font-bold tracking-[0.14em] sm:tracking-[0.18em] opacity-75">
-                  Bisglycinate · 60 caps
-                </span>
-              </Link>
+        <div className="relative z-10 flex flex-1 flex-col justify-between px-5 pt-4 pb-8 sm:px-8 sm:pt-6 sm:pb-12 md:justify-end md:px-12 md:pt-0 md:pb-24">
+          <div className="mx-auto flex flex-1 flex-col justify-between w-full max-w-screen-2xl md:block md:flex-none">
+            <div>
+              <div className="animate-fade-up mb-4 sm:mb-6 md:mb-8 flex flex-wrap gap-2.5 sm:gap-3">
+                <Link
+                  to="/omega-3"
+                  className="group flex items-baseline gap-2 sm:gap-3 rounded-sm bg-accent px-3.5 py-1.5 sm:px-4 sm:py-2 text-[10px] sm:text-xs font-extrabold uppercase tracking-widest text-accent-foreground transition-opacity hover:opacity-90"
+                >
+                  <span>01 Omega-3</span>
+                  <span className="font-bold tracking-[0.14em] sm:tracking-[0.18em] opacity-75">
+                    EPA + DHA · 60 caps
+                  </span>
+                </Link>
+                <Link
+                  to="/magnesium"
+                  className="group flex items-baseline gap-2 sm:gap-3 rounded-sm bg-lavender px-3.5 py-1.5 sm:px-4 sm:py-2 text-[10px] sm:text-xs font-extrabold uppercase tracking-widest text-foreground transition-opacity hover:opacity-90"
+                >
+                  <span>02 Magnesium</span>
+                  <span className="font-bold tracking-[0.14em] sm:tracking-[0.18em] opacity-75">
+                    Bisglycinate · 60 caps
+                  </span>
+                </Link>
+              </div>
+
+              <h1 className="animate-fade-up delay-150 -ml-0.5 text-5xl sm:text-7xl md:text-8xl lg:text-[9.5rem] font-extrabold leading-[0.88] tracking-tighter md:-ml-2">
+                STAPLE
+                <br />
+                <span className="text-warmgrey/45">WELLNESS</span>
+              </h1>
             </div>
 
-            <h1 className="animate-fade-up delay-150 -ml-0.5 text-5xl sm:text-7xl md:text-8xl lg:text-[9.5rem] font-extrabold leading-[0.88] tracking-tighter md:-ml-2">
-              STAPLE
-              <br />
-              <span className="text-warmgrey/45">WELLNESS</span>
-            </h1>
-
-            <div className="animate-fade-up delay-300 mt-8 sm:mt-12 md:mt-16 flex flex-col justify-between gap-6 md:flex-row md:items-end">
-              <p className="max-w-md text-base font-light leading-relaxed text-foreground sm:text-lg md:text-xl">
+            <div className="animate-fade-up delay-300 mt-6 sm:mt-10 md:mt-16 flex flex-col justify-between gap-5 sm:gap-6 md:flex-row md:items-end">
+              <p className="max-w-[270px] sm:max-w-md text-base font-light leading-relaxed text-foreground sm:text-lg md:text-xl">
                 Verified supplement formulations with full supply chain transparency.
                 Grounded in evidence, refined for daily life.
               </p>
