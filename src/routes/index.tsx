@@ -249,7 +249,7 @@ function Index() {
         )}
 
         {/* Hero content */}
-        <div className="relative z-10 flex flex-1 flex-col justify-end px-5 pb-12 sm:px-8 sm:pb-16 md:px-12 md:pb-24">
+        <div className="relative z-10 flex flex-1 flex-col justify-center px-5 py-8 sm:px-8 sm:py-12 md:justify-end md:px-12 md:pt-0 md:pb-24">
           <div className="mx-auto w-full max-w-screen-2xl">
             <div className="animate-fade-up mb-6 sm:mb-8 flex flex-wrap gap-2.5 sm:gap-3">
               <Link
