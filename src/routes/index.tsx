@@ -109,17 +109,27 @@ function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Hero: full bleed */}
-      <section id="top" className="relative flex min-h-[100dvh] flex-col overflow-hidden">
+      <section id="top" className="relative flex min-h-[100dvh] flex-col overflow-hidden bg-background">
         {/* Background image + scrim */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src={heroImg}
-            alt="Staple Omega-3 and Staple Magnesium bottles on a warm stone surface in soft daylight"
-            width={1920}
-            height={1088}
-            className="h-full w-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/15 to-background/85" />
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+          {/* Base tint matching studio backdrop */}
+          <div className="absolute inset-0 bg-[#FAF8F1]" />
+
+          {/* Hero product bottles image: sized, scaled, and anchored cleanly to the right */}
+          <div className="absolute right-0 top-0 bottom-0 w-full sm:w-[85%] md:w-[70%] lg:w-[60%] xl:w-[54%] h-full">
+            <img
+              src={heroImg}
+              alt="Staple Omega-3 and Staple Magnesium bottles on a warm stone surface in soft daylight"
+              width={1376}
+              height={768}
+              className="h-full w-full object-cover object-right sm:object-[82%_center] md:object-right"
+            />
+            {/* Soft horizontal gradient fade so the left of the image seamlessly dissolves into the background */}
+            <div className="absolute inset-y-0 left-0 w-24 sm:w-36 md:w-52 lg:w-64 bg-gradient-to-r from-background via-background/70 to-transparent" />
+          </div>
+
+          {/* Atmospheric gradient overlay for contrast and scannability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-transparent to-background/90 md:from-background/50 md:via-transparent md:to-background/70" />
         </div>
 
         {/* Nav */}
@@ -249,13 +259,14 @@ function Index() {
         )}
 
         {/* Hero content */}
-        <div className="relative z-10 flex flex-1 flex-col justify-between px-5 pt-4 pb-8 sm:px-8 sm:pt-6 sm:pb-12 md:justify-end md:px-12 md:pt-0 md:pb-24">
-          <div className="mx-auto flex flex-1 flex-col justify-between w-full max-w-screen-2xl md:block md:flex-none">
-            <div>
-              <div className="animate-fade-up mb-4 sm:mb-6 md:mb-8 flex flex-wrap gap-2.5 sm:gap-3">
+        <div className="relative z-10 flex flex-1 flex-col justify-center px-5 py-8 sm:px-8 sm:py-12 md:px-12 md:py-16">
+          <div className="mx-auto w-full max-w-screen-2xl">
+            <div className="max-w-xl lg:max-w-2xl flex flex-col items-start">
+              {/* Product Badges */}
+              <div className="animate-fade-up mb-4 sm:mb-6 flex flex-wrap items-center gap-2.5 sm:gap-3">
                 <Link
                   to="/omega-3"
-                  className="group flex items-baseline gap-2 sm:gap-3 rounded-sm bg-accent px-3.5 py-1.5 sm:px-4 sm:py-2 text-[10px] sm:text-xs font-extrabold uppercase tracking-widest text-accent-foreground transition-opacity hover:opacity-90"
+                  className="group flex items-baseline gap-2 sm:gap-2.5 rounded-sm bg-accent px-3 py-1.5 sm:px-3.5 sm:py-2 text-[10px] sm:text-xs font-extrabold uppercase tracking-widest text-accent-foreground transition-opacity hover:opacity-90"
                 >
                   <span>01 Omega-3</span>
                   <span className="font-bold tracking-[0.14em] sm:tracking-[0.18em] opacity-75">
@@ -264,7 +275,7 @@ function Index() {
                 </Link>
                 <Link
                   to="/magnesium"
-                  className="group flex items-baseline gap-2 sm:gap-3 rounded-sm bg-lavender px-3.5 py-1.5 sm:px-4 sm:py-2 text-[10px] sm:text-xs font-extrabold uppercase tracking-widest text-foreground transition-opacity hover:opacity-90"
+                  className="group flex items-baseline gap-2 sm:gap-2.5 rounded-sm bg-lavender px-3 py-1.5 sm:px-3.5 sm:py-2 text-[10px] sm:text-xs font-extrabold uppercase tracking-widest text-foreground transition-opacity hover:opacity-90"
                 >
                   <span>02 Magnesium</span>
                   <span className="font-bold tracking-[0.14em] sm:tracking-[0.18em] opacity-75">
@@ -273,34 +284,37 @@ function Index() {
                 </Link>
               </div>
 
-              <h1 className="animate-fade-up delay-150 -ml-0.5 text-5xl sm:text-7xl md:text-8xl lg:text-[9.5rem] font-extrabold leading-[0.88] tracking-tighter md:-ml-2">
+              {/* Editorial Title - perfectly aligned flush left */}
+              <h1 className="animate-fade-up delay-150 text-5xl sm:text-6xl md:text-7xl lg:text-[6.5rem] xl:text-[7.5rem] 2xl:text-[8.5rem] font-extrabold leading-[0.88] tracking-tighter">
                 STAPLE
                 <br />
                 <span className="text-warmgrey/45">WELLNESS</span>
               </h1>
-            </div>
 
-            <div className="animate-fade-up delay-300 mt-6 sm:mt-10 md:mt-16 flex flex-col justify-between gap-5 sm:gap-6 md:flex-row md:items-end">
-              <p className="max-w-[270px] sm:max-w-md text-base font-light leading-relaxed text-foreground sm:text-lg md:text-xl">
+              {/* Subtitle / Description - aligned flush left */}
+              <p className="animate-fade-up delay-200 mt-5 sm:mt-7 max-w-lg text-base sm:text-lg md:text-xl font-light leading-relaxed text-foreground">
                 Verified supplement formulations with full supply chain transparency.
                 Grounded in evidence, refined for daily life.
               </p>
-              <div className="flex flex-col items-start gap-4 md:items-end">
-                <div className="flex items-center gap-3 sm:gap-4">
-                  <div className="h-px w-8 sm:w-12 bg-foreground" />
-                  <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.26em] sm:tracking-[0.3em] text-warmgrey">
+
+              {/* Action row & Brand Motto - anchored cleanly on the left */}
+              <div className="animate-fade-up delay-300 mt-7 sm:mt-9 flex flex-wrap items-center gap-4 sm:gap-6">
+                <a
+                  href="#products"
+                  className="group inline-flex min-h-[46px] items-center gap-3 rounded-full bg-primary px-6 py-3 text-xs sm:text-sm font-bold uppercase tracking-widest text-primary-foreground transition-all hover:bg-warmgrey hover:shadow-md"
+                >
+                  <span>See the products</span>
+                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary-foreground text-primary transition-transform group-hover:translate-x-0.5">
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </span>
+                </a>
+
+                <div className="flex items-center gap-3">
+                  <div className="h-px w-8 sm:w-10 bg-foreground/40" />
+                  <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.24em] sm:tracking-[0.28em] text-warmgrey">
                     Clear by default
                   </span>
                 </div>
-                <a
-                  href="#products"
-                  className="group inline-flex min-h-[44px] items-center gap-3.5 text-xs sm:text-sm font-bold uppercase tracking-widest text-foreground"
-                >
-                  <span>See the products</span>
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full border border-foreground transition-colors group-hover:bg-foreground group-hover:text-background">
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                  </span>
-                </a>
               </div>
             </div>
           </div>
