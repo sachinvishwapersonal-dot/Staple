@@ -4,25 +4,51 @@ Production web storefront for **Staple Wellness**, delivering verified supplemen
 
 ## Tech Stack
 
-- **Framework**: React 19 + TanStack Start (SSR)
-- **Routing**: TanStack Router (File-based routing under `src/routes/`)
-- **Language**: TypeScript
+- **Framework**: Next.js 15+ (App Router)
+- **Language**: TypeScript 5+
 - **Styling**: Tailwind CSS v4 + Radix UI Primitives
-- **Data & State**: TanStack Query
-- **Bundler**: Vite 8
+- **Animations**: Framer Motion
+- **State Management**: Zustand
+- **Form Handling**: React Hook Form + Zod
 
 ## Getting Started
 
-```sh
+### Prerequisites
+
+- Node.js 18+ (Node 20+ recommended)
+- npm or pnpm
+
+### Installation
+
+```bash
+# Install dependencies
 npm install
+
+# Run the local development server
 npm run dev
 ```
 
-The dev server will start on [http://localhost:8080](http://localhost:8080).
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Project Structure
+### Scripts
 
-- `src/routes/` : File-based application routes (`index.tsx`, `omega-3.tsx`, `magnesium.tsx`, `blog.*`)
-- `src/components/` : Modular UI components and Radix primitives
-- `src/lib/` : Brand definitions and content records
-- `src/assets/` : High-resolution product and lifestyle photography
+- `npm run dev`: Starts the Next.js development server.
+- `npm run build`: Builds the production bundle.
+- `npm run start`: Runs the built production server.
+- `npm run typecheck`: Validates TypeScript types across the project.
+- `npm run lint`: Runs Next.js ESLint checks.
+
+## Architecture & Project Structure
+
+- `src/app/` : Next.js App Router root layout, metadata, and pages.
+- `src/components/layout/` : Header, navigation, and footer chrome.
+- `src/components/sections/` : Modular landing page sections (Hero, Product Rail, Science, Traceability, Range Essentials, Reserve).
+- `src/components/drawer/` : Radix-powered accessible reservation drawer & line items.
+- `src/components/ui/` : Atomic design tokens, buttons, badges, chips, and scroll reveals.
+- `src/config/` : Product catalogue, circadian timings, and site configuration.
+- `src/types/` : TypeScript interfaces for products and reservations.
+- `Doc/` : Architectural specifications, PRDs, brand voice, and packaging documentation.
+
+## License
+
+ISC © Staple Wellness

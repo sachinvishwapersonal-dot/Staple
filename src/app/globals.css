@@ -1,0 +1,230 @@
+@import "tailwindcss" source(none);
+@source "..";
+
+/* ====================================================================
+   STAPLE WELLNESS — Design tokens
+   Three-layer token architecture: primitive hex → semantic intent →
+   component usage. Palette per Doc/design.md §2.1.
+   Aesthetic family: Warm Editorial & Clinical Transparency
+   (Anthropic/Claude · Ritual · Aesop) per Doc/ARCHITECTURE.md §2.1.
+   ==================================================================== */
+
+@theme {
+  /* Surfaces & Canvas — canvas is the beige field; deep is the banding lift */
+  --color-canvas: #F5F5DC;
+  --color-canvas-deep: #EDEBD6;
+  --color-canvas-ivory: #FAF8F1;
+  --color-surface: #FFFFFF;
+  --color-subtle: #F4EFE6;
+  --color-mist: #EFE9DE;
+
+  /* Editorial Ink */
+  --color-ink: #1D1D1B;
+  --color-ink-soft: #57534E;
+  --color-ink-muted: #8A857D;
+
+  /* Circadian Accents */
+  --color-lemon: #F6E77A;
+  --color-lemon-hover: #EED956;
+  --color-lemon-wash: #FEF9C3;
+  --color-pink: #FAD4D8;
+  --color-pink-hover: #F7BDC4;
+  --color-pink-wash: #FCE4E8;
+  --color-sage: #3B6E52;
+
+  /* Borders */
+  --color-border-hairline: rgba(29, 29, 27, 0.1);
+  --color-border-mid: rgba(29, 29, 27, 0.18);
+  --color-border-strong: rgba(29, 29, 27, 0.32);
+
+  /* Typography */
+  --font-display: var(--font-jakarta), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-jakarta), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Radii */
+  --radius-card: 16px;
+  --radius-pill: 100px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 0.68, 0, 1.2);
+  --ease-std: cubic-bezier(0.25, 0.1, 0.25, 1);
+
+  /* Editorial rhythm */
+  --rule: rgba(29, 29, 27, 0.14);
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-synthesis-weight: none;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    margin: 0;
+    line-height: 1.1;
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    font-style: normal;
+    text-wrap: balance;
+  }
+
+  p {
+    margin: 0 0 18px;
+    text-wrap: pretty;
+  }
+
+  /* Clinical specifications read as instrument readouts, never as prose. */
+  .mono,
+  code,
+  kbd {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  ::selection {
+    background: var(--color-lemon);
+    color: var(--color-ink);
+  }
+
+  [id] {
+    scroll-margin-top: 96px;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@layer utilities {
+  .container-page {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-inline: clamp(20px, 4vw, 48px);
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-ink-muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Editorial section index — the magazine folio marker. */
+  .folio {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-ink-muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Typographic depth instead of shadow: a hairline that anchors a block. */
+  .hairline {
+    border-top: 1px solid var(--color-border-hairline);
+  }
+
+  /* Understated editorial link: underline grows from the baseline. */
+  .link-rule {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    transition: background-size 280ms var(--ease-std);
+  }
+
+  .link-rule:hover,
+  .link-rule:focus-visible {
+    background-size: 100% 1px;
+  }
+
+  .mono {
+    font-family: var(--font-mono);
+  }
+}
+
+/* Scrollbar — quiet, matched to the parchment field. */
+@supports selector(::-webkit-scrollbar) {
+  ::-webkit-scrollbar {
+    width: 11px;
+    height: 11px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(29, 29, 27, 0.16);
+    border: 3px solid var(--color-canvas);
+    border-radius: 100px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(29, 29, 27, 0.28);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

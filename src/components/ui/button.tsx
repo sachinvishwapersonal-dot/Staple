@@ -1,49 +1,52 @@
-import * as React from "react";
-import { Slot } from "@radix-ui/react-slot";
-import { cva, type VariantProps } from "class-variance-authority";
+import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react';
+import { cn } from '@/lib/utils';
 
-import { cn } from "@/lib/utils";
+type Variant = 'dark' | 'ghost' | 'lemon';
+type Size = 'md' | 'sm';
 
-const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium cursor-pointer transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
-  {
-    variants: {
-      variant: {
-        default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
-        destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
-        outline:
-          "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
-        secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
-      },
-      size: {
-        default: "h-9 px-4 py-2",
-        sm: "h-8 rounded-md px-3 text-xs",
-        lg: "h-10 rounded-md px-8",
-        icon: "h-9 w-9",
-      },
-    },
-    defaultVariants: {
-      variant: "default",
-      size: "default",
-    },
-  },
-);
+const base =
+  'inline-flex items-center justify-center gap-2.5 rounded-[var(--radius-pill)] font-body text-sm font-semibold tracking-[0.02em] whitespace-nowrap transition-[background,border-color,color,transform] duration-[260ms] ease-[cubic-bezier(0.25,0.1,0.25,1)] active:translate-y-px disabled:cursor-not-allowed disabled:opacity-60';
 
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {
-  asChild?: boolean;
+const variants: Record<Variant, string> = {
+  dark: 'border-[1.5px] border-ink bg-ink text-white hover:border-sage hover:bg-sage',
+  ghost:
+    'border-[1.5px] border-[var(--color-border-mid)] bg-transparent text-ink hover:border-ink hover:bg-subtle',
+  lemon:
+    'border-[1.5px] border-lemon bg-lemon text-ink hover:border-lemon-hover hover:bg-lemon-hover',
+};
+
+const sizes: Record<Size, string> = {
+  md: 'h-[52px] px-[30px]',
+  sm: 'h-[42px] px-[22px] text-[13px]',
+};
+
+interface CommonProps {
+  variant?: Variant;
+  size?: Size;
+  className?: string;
+  children: ReactNode;
 }
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button";
-    return (
-      <Comp className={cn(buttonVariants({ variant, size, className }))} ref={ref} {...props} />
-    );
-  },
-);
-Button.displayName = "Button";
+type ButtonProps = CommonProps & ButtonHTMLAttributes<HTMLButtonElement> & { href?: never };
+type LinkProps = CommonProps & AnchorHTMLAttributes<HTMLAnchorElement> & { href: string };
 
-export { Button, buttonVariants };
+export function Button(props: ButtonProps | LinkProps) {
+  const { variant = 'dark', size = 'md', className, children, ...rest } = props;
+  const classes = cn(base, variants[variant], sizes[size], className);
+
+  if (typeof (rest as LinkProps).href === 'string') {
+    const { href, ...anchorRest } = rest as LinkProps;
+    return (
+      <a href={href} className={classes} {...anchorRest}>
+        {children}
+      </a>
+    );
+  }
+
+  const buttonRest = rest as ButtonHTMLAttributes<HTMLButtonElement>;
+  return (
+    <button className={classes} {...buttonRest}>
+      {children}
+    </button>
+  );
+}
