@@ -1,22 +1,15 @@
 import type { Metadata } from 'next';
-import { Inter, JetBrains_Mono, Plus_Jakarta_Sans } from 'next/font/google';
+import { Inter, JetBrains_Mono } from 'next/font/google';
 import { SiteChrome } from '@/components/layout/site-chrome';
 import { SiteFooter } from '@/components/layout/site-footer';
 import { SITE } from '@/config/site';
 import './globals.css';
 
-const jakarta = Plus_Jakarta_Sans({
-  subsets: ['latin'],
-  variable: '--font-jakarta',
-  display: 'swap',
-  weight: ['400', '500', '600', '700'],
-});
-
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap',
-  weight: ['400', '500', '600'],
+  weight: ['400', '500', '600', '700'],
 });
 
 const mono = JetBrains_Mono({
@@ -51,7 +44,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${jakarta.variable} ${inter.variable} ${mono.variable}`}>
+    <html lang="en" className={`${inter.variable} ${mono.variable}`}>
       <body>
         <a
           href="#products"
