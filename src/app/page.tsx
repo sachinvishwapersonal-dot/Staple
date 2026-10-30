@@ -1,67 +1,36 @@
 import { HeroSection } from '@/components/sections/hero-section';
-import { AssuranceStrip } from '@/components/sections/assurance-strip';
-import { ProductRail } from '@/components/sections/product-rail';
-import { RitualSection } from '@/components/sections/ritual-section';
-import { ScienceSplit } from '@/components/sections/science-split';
-import { TransparencySplit } from '@/components/sections/transparency-split';
-import { VerifySection } from '@/components/sections/verify-section';
-import { StandardsGrid } from '@/components/sections/standards-grid';
-import { RangeEssentials } from '@/components/sections/range-essentials';
-import { ReserveSection } from '@/components/sections/reserve-section';
-import { PRODUCTS } from '@/config/products';
+import { WhySection } from '@/components/sections/why-section';
+import { PublishSection } from '@/components/sections/publish-section';
+import { ProductsSection } from '@/components/sections/products-section';
+import { GuidesSection } from '@/components/sections/guides-section';
+import { StatusSection } from '@/components/sections/status-section';
+import { FaqSection } from '@/components/sections/faq-section';
+import { WaitlistSection } from '@/components/sections/waitlist-section';
 import { SITE } from '@/config/site';
 
-function StructuredData() {
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'Organization',
-        name: SITE.name,
-        url: SITE.url,
-        description: SITE.description,
-        identifier: SITE.fssai,
-        hasCertification: SITE.certification,
-      },
-      ...PRODUCTS.filter((product) => product.circadianWindow !== 'ALL_DAY').map((product) => ({
-        '@type': 'Product',
-        name: product.name,
-        description: product.description,
-        sku: product.id,
-        brand: { '@type': 'Brand', name: SITE.name },
-        image: `${SITE.url}${product.image}`,
-        offers: {
-          '@type': 'Offer',
-          price: product.price,
-          priceCurrency: 'INR',
-          availability: 'https://schema.org/PreOrder',
-        },
-      })),
-    ],
-  };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-    />
-  );
-}
+const JSON_LD = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: SITE.name,
+  url: SITE.url,
+  description: SITE.description,
+};
 
 export default function HomePage() {
   return (
     <>
-      <StructuredData />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }}
+      />
       <HeroSection />
-      <AssuranceStrip />
-      <ProductRail />
-      <RitualSection />
-      <ScienceSplit />
-      <TransparencySplit />
-      <VerifySection />
-      <StandardsGrid />
-      <RangeEssentials />
-      <ReserveSection />
+      <WhySection />
+      <PublishSection />
+      <ProductsSection />
+      <GuidesSection />
+      <StatusSection />
+      <FaqSection />
+      <WaitlistSection />
     </>
   );
 }

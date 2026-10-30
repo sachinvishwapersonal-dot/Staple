@@ -259,7 +259,7 @@ Before commercial launch, the brand foundation must satisfy the following five r
 ## 9. Appendix: Project References
 
 - **Brand Design System & Color Palette:** [`Lending_page.md`](file:///c:/Users/hp/Documents/staple_wellness/Lending_page.md)
-- **Indian Market Competitor Intelligence:** [`reports_&_market-data/Market_Research.md`](file:///c:/Users/hp/Documents/staple_wellness/reports_&_market-data/Market_Research.md)
-- **6-Brand Indian Nutraceutical Teardown:** [`reports_&_market-data/indian_nutraceutical_teardown.md`](file:///c:/Users/hp/Documents/staple_wellness/reports_&_market-data/indian_nutraceutical_teardown.md)
+- **Indian Market Competitor Intelligence:** [`research/reports/Market_Research.md`](file:///c:/Users/hp/Documents/staple_wellness/research/reports/Market_Research.md)
+- **6-Brand Indian Nutraceutical Teardown:** [`research/reports/indian_nutraceutical_teardown.md`](file:///c:/Users/hp/Documents/staple_wellness/research/reports/indian_nutraceutical_teardown.md)
 - **Active SKU Definitions & HPLC Assay Mock Data:** [`src/data/products.js`](file:///c:/Users/hp/Documents/staple_wellness/src/data/products.js)
 - **React Frontend Application Entrypoint:** [`src/App.jsx`](file:///c:/Users/hp/Documents/staple_wellness/src/App.jsx)

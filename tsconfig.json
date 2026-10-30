@@ -1,4 +1,4 @@
-{
+﻿{
   "compilerOptions": {
     "target": "ES2022",
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -19,5 +19,5 @@
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules", "mock-design", "awesome-claude-design", ".agents", ".commandcode"]
+  "exclude": ["node_modules", "awesome-claude-design", ".agents", ".commandcode"]
 }

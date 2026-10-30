@@ -32,14 +32,18 @@
   --color-pink-wash: #FCE4E8;
   --color-sage: #3B6E52;
 
+  /* Night (PM) — plum-ink surfaces for the evening half of the page */
+  --color-night: #1B1626;
+  --color-night-soft: #2B2338;
+  --color-night-line: rgba(250, 212, 216, 0.16);
+
   /* Borders */
   --color-border-hairline: rgba(29, 29, 27, 0.1);
   --color-border-mid: rgba(29, 29, 27, 0.18);
   --color-border-strong: rgba(29, 29, 27, 0.32);
 
-  /* Typography — Inter body (loaded), Calibri headings (system MS font;
-     Carlito is the metric-compatible web fallback for macOS/Linux/mobile) */
-  --font-display: Calibri, Carlito, "Segoe UI", var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  /* Typography — Fraunces display serif, Inter body, JetBrains Mono specs */
+  --font-display: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
   --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains), ui-monospace, "SF Mono", Menlo, monospace;
 
@@ -63,6 +67,7 @@
   }
 
   html {
+    background-color: var(--color-night);
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
   }
@@ -87,8 +92,9 @@
     margin: 0;
     line-height: 1.12;
     font-family: var(--font-display);
-    font-weight: 600;
-    letter-spacing: -0.025em;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    font-optical-sizing: auto;
     font-style: normal;
     text-wrap: balance;
   }
@@ -197,6 +203,33 @@
 
   .mono {
     font-family: var(--font-mono);
+  }
+
+  /* Arch frame — the page's signature shape for product photography. */
+  .arch {
+    border-top-left-radius: 999px;
+    border-top-right-radius: 999px;
+    border-bottom-left-radius: 28px;
+    border-bottom-right-radius: 28px;
+  }
+
+  /* Slow ambient float for hero imagery (transform only; off under reduced motion). */
+  @keyframes float-y {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .float-slow {
+    animation: float-y 7s ease-in-out infinite;
+  }
+
+  .float-slow-delay {
+    animation: float-y 7s ease-in-out -3.5s infinite;
   }
 }
 

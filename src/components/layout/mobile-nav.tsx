@@ -9,7 +9,7 @@ interface MobileNavProps {
   onClose: () => void;
 }
 
-const ALL_LINKS = [{ label: 'Formulations', href: '#products' }, ...NAV_LINKS];
+const ALL_LINKS = NAV_LINKS;
 
 export function MobileNav({ open, onClose }: MobileNavProps) {
   return (
@@ -33,8 +33,7 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 28, stiffness: 280 }}
           >
-            <div className="mb-6 flex items-center justify-between">
-              <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-muted">Menu</span>
+            <div className="mb-6 flex items-center justify-end">
               <button
                 type="button"
                 onClick={onClose}
@@ -58,11 +57,11 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
               ))}
             </ul>
             <a
-              href="#reserve"
+              href="/#waitlist"
               onClick={onClose}
               className="mt-8 inline-flex h-[52px] items-center justify-center rounded-[var(--radius-pill)] bg-ink px-7 text-sm font-semibold text-white"
             >
-              Reserve Batch 01
+              Join the waitlist
             </a>
           </motion.nav>
         </>

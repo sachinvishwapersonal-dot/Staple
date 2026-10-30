@@ -1,53 +1,63 @@
 # Staple Wellness | Web Application
 
-Production web storefront for **Staple Wellness**, delivering verified supplement formulations with full supply chain transparency.
+Pre-launch site for **Staple Wellness**, an omega-3 and magnesium supplement brand for India. Formulations are not final, so the site publishes no dose, form, source, test or benefit claims. See `Doc/` and the workspace `CLAIMS.md` before changing any copy.
 
 ## Tech Stack
 
-- **Framework**: Next.js 15+ (App Router)
-- **Language**: TypeScript 5+
-- **Styling**: Tailwind CSS v4 + Radix UI Primitives
-- **Animations**: Framer Motion
-- **State Management**: Zustand
-- **Form Handling**: React Hook Form + Zod
+- **Framework**: Next.js 15 (App Router), React 19
+- **Language**: TypeScript 5
+- **Styling**: Tailwind CSS v4
+- **Animation**: Framer Motion
+- **Forms**: React Hook Form + Zod
+- **Fonts**: Fraunces, Inter, JetBrains Mono (`next/font/google`)
+- **Hosting**: Vercel, deployed from `main`
 
 ## Getting Started
 
-### Prerequisites
-
-- Node.js 18+ (Node 20+ recommended)
-- npm or pnpm
-
-### Installation
+Node.js 18+ (20+ recommended).
 
 ```bash
-# Install dependencies
 npm install
-
-# Run the local development server
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open [http://localhost:3000](http://localhost:3000).
 
 ### Scripts
 
-- `npm run dev`: Starts the Next.js development server.
-- `npm run build`: Builds the production bundle.
-- `npm run start`: Runs the built production server.
-- `npm run typecheck`: Validates TypeScript types across the project.
-- `npm run lint`: Runs Next.js ESLint checks.
+- `npm run dev`: development server.
+- `npm run build`: production build. A preflight guard aborts it while a dev server is running.
+- `npm run start`: serve the production build.
+- `npm run typecheck`: TypeScript check.
 
-## Architecture & Project Structure
+## Project Structure
 
-- `src/app/` : Next.js App Router root layout, metadata, and pages.
-- `src/components/layout/` : Header, navigation, and footer chrome.
-- `src/components/sections/` : Modular landing page sections (Hero, Product Rail, Science, Traceability, Range Essentials, Reserve).
-- `src/components/drawer/` : Radix-powered accessible reservation drawer & line items.
-- `src/components/ui/` : Atomic design tokens, buttons, badges, chips, and scroll reveals.
-- `src/config/` : Product catalogue, circadian timings, and site configuration.
-- `src/types/` : TypeScript interfaces for products and reservations.
-- `Doc/` : Architectural specifications, PRDs, brand voice, and packaging documentation.
+```
+src/
+  app/                    layout, global styles, home page, products/[slug]
+  components/
+    layout/               header, mobile nav, footer
+    sections/             hero, why, publish, products, guides, status, faq, waitlist
+    ui/                   button, scroll-reveal
+  config/
+    site.ts               all home page copy and navigation
+    products.ts           product records and label declarations
+  hooks/                  reduced motion, scroll state
+  lib/                    class names, motion variants
+public/assets/
+  brand/                  logo variants and mark
+  products/catalog/       product photos
+  video/                  hero video
+research/                 market research, prompts, brand guidelines, logo sources, data
+Doc/                      PRD, brand, design, architecture and packaging notes
+scripts/                  build guard
+```
+
+Page copy lives in `src/config/site.ts`. Product pages read `src/config/products.ts`.
+
+## Compliance
+
+Until formulations are final, no page may state a dose, form, source, test result, certification, price or health benefit. The FSSAI licence number is not shown on the site.
 
 ## License
 

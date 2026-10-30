@@ -30,3 +30,7 @@ yarn-error.log*
 /.commandcode/
 /.agents/
 /awesome-claude-design/
+
+# local browser-automation artefacts
+/.playwright-mcp/
+/.claude/

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, JetBrains_Mono } from 'next/font/google';
+import { Fraunces, Inter, JetBrains_Mono } from 'next/font/google';
 import { SiteChrome } from '@/components/layout/site-chrome';
 import { SiteFooter } from '@/components/layout/site-footer';
 import { SITE } from '@/config/site';
@@ -10,6 +10,14 @@ const inter = Inter({
   variable: '--font-inter',
   display: 'swap',
   weight: ['400', '500', '600', '700'],
+});
+
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  variable: '--font-fraunces',
+  display: 'swap',
+  style: ['normal', 'italic'],
+  axes: ['opsz'],
 });
 
 const mono = JetBrains_Mono({
@@ -38,22 +46,22 @@ export const metadata: Metadata = {
   },
   robots: { index: true, follow: true },
   icons: {
-    icon: "/favicon.svg",
+    icon: '/assets/brand/staple-mark.png',
   },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${mono.variable}`}>
+    <html lang="en" className={`${inter.variable} ${fraunces.variable} ${mono.variable}`}>
       <body>
         <a
-          href="#products"
+          href="#content"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[300] focus:rounded-md focus:bg-ink focus:px-4 focus:py-2 focus:text-white"
         >
           Skip to content
         </a>
         <SiteChrome />
-        <main>{children}</main>
+        <main id="content">{children}</main>
         <SiteFooter />
       </body>
     </html>
