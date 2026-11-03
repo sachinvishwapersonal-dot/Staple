@@ -13,7 +13,7 @@ export function HeroVideo() {
   return (
     <video
       ref={ref}
-      src="/assets/video/Final_hero_section_video.mp4"
+      src="/assets/video/Final_video.mp4"
       className="absolute inset-0 h-full w-full object-cover"
       autoPlay
       muted
