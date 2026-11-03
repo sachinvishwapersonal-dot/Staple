@@ -3,7 +3,7 @@ import { FOOTER } from '@/config/site';
 
 export function SiteFooter() {
   return (
-    <footer className="bg-night pt-[clamp(56px,6vw,88px)] text-white">
+    <footer className="bg-ink pt-[clamp(56px,6vw,88px)] text-white">
       <div className="container-page">
         <div className="grid grid-cols-1 gap-10 border-b border-white/12 pb-12 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr]">
           <div>

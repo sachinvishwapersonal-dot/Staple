@@ -11,22 +11,12 @@ export function WhySection() {
           </h2>
         </ScrollReveal>
 
-        <ScrollReveal>
-          <p className="mb-10 max-w-[52ch] text-[clamp(18px,1.6vw,22px)] leading-[1.55]">{WHY.intro}</p>
-          <h3 className="mb-4 text-[15px] font-medium text-ink-muted">
-            {WHY.listTitle}
-          </h3>
-          <ul className="mb-10 border-t border-[var(--color-border-mid)]">
-            {WHY.found.map((line) => (
-              <li
-                key={line}
-                className="border-b border-[var(--color-border-hairline)] py-4 text-[17px] leading-[1.5] text-ink-soft"
-              >
-                {line}
-              </li>
-            ))}
-          </ul>
-          <p className="max-w-[52ch] font-display text-[clamp(22px,2vw,28px)] leading-[1.3]">{WHY.close}</p>
+        <ScrollReveal className="flex flex-col gap-6">
+          {WHY.body.map((paragraph) => (
+            <p key={paragraph} className="max-w-[52ch] text-[clamp(18px,1.6vw,22px)] leading-[1.55]">
+              {paragraph}
+            </p>
+          ))}
         </ScrollReveal>
       </div>
     </section>

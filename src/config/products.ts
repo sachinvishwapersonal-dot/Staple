@@ -13,7 +13,6 @@ export interface ProductRecord {
   image: string;
   position: string;
   imageAlt: string;
-  wash: 'lemon' | 'pink';
   summary: string;
   labelWillState: string[];
   label: LabelField[];
@@ -30,7 +29,6 @@ export const PRODUCT_LIST: ProductRecord[] = [
     image: '/assets/products/catalog/omega3-catalog.jpg',
     position: 'object-[50%_55%]',
     imageAlt: 'Omega-3 pack concept on a stone slab',
-    wash: 'lemon',
     summary:
       'An omega-3 supplement, in development. The label will give EPA and DHA per serving, the omega-3 form and the oil source. None of these are final yet.',
     labelWillState: [
@@ -81,7 +79,6 @@ export const PRODUCT_LIST: ProductRecord[] = [
     image: '/assets/products/catalog/magnesium-catalog.jpg',
     position: 'object-[60%_55%]',
     imageAlt: 'Magnesium pack concept on a lilac plinth',
-    wash: 'pink',
     summary:
       'A magnesium supplement, in development. The label will give elemental magnesium per serving and name the magnesium compound. Neither is final yet.',
     labelWillState: [

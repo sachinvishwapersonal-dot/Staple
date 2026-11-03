@@ -52,7 +52,7 @@ export function SiteHeader({ onOpenMenu }: SiteHeaderProps) {
         <div className="flex items-center gap-1.5">
           <a
             href="/#waitlist"
-            className="inline-flex h-[42px] items-center rounded-full bg-ink px-5 text-[13px] font-semibold text-white transition-colors hover:bg-sage"
+            className="inline-flex h-[42px] items-center rounded-full bg-ink px-5 text-[13px] font-semibold text-white transition-colors hover:bg-ink-soft"
           >
             Join the waitlist
           </a>

@@ -10,40 +10,26 @@
    ==================================================================== */
 
 @theme {
-  /* Surfaces & Canvas — canvas is the beige field; deep is the banding lift */
-  --color-canvas: #F5F5DC;
-  --color-canvas-deep: #EDEBD6;
-  --color-canvas-ivory: #FAF8F1;
+  /* Palette: lemon, ink and white only. Lemon-wash is the tinted panel. */
   --color-surface: #FFFFFF;
-  --color-subtle: #F4EFE6;
-  --color-mist: #EFE9DE;
 
   /* Editorial Ink */
   --color-ink: #1D1D1B;
   --color-ink-soft: #57534E;
   --color-ink-muted: #8A857D;
 
-  /* Circadian Accents */
+  /* Accent */
   --color-lemon: #F6E77A;
   --color-lemon-hover: #EED956;
   --color-lemon-wash: #FEF9C3;
-  --color-pink: #FAD4D8;
-  --color-pink-hover: #F7BDC4;
-  --color-pink-wash: #FCE4E8;
-  --color-sage: #3B6E52;
-
-  /* Night (PM) — plum-ink surfaces for the evening half of the page */
-  --color-night: #1B1626;
-  --color-night-soft: #2B2338;
-  --color-night-line: rgba(250, 212, 216, 0.16);
 
   /* Borders */
   --color-border-hairline: rgba(29, 29, 27, 0.1);
   --color-border-mid: rgba(29, 29, 27, 0.18);
   --color-border-strong: rgba(29, 29, 27, 0.32);
 
-  /* Typography — Fraunces display serif, Inter body, JetBrains Mono specs */
-  --font-display: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
+  /* Typography — Calibri headings (Carlito fallback), Inter body, JetBrains Mono specs */
+  --font-display: Calibri, var(--font-carlito), Carlito, ui-sans-serif, system-ui, sans-serif;
   --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains), ui-monospace, "SF Mono", Menlo, monospace;
 
@@ -67,14 +53,14 @@
   }
 
   html {
-    background-color: var(--color-night);
+    background-color: var(--color-ink);
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
   }
 
   body {
     margin: 0;
-    background-color: var(--color-canvas);
+    background-color: var(--color-surface);
     color: var(--color-ink);
     font-family: var(--font-body);
     font-size: 16px;
@@ -244,7 +230,7 @@
   }
   ::-webkit-scrollbar-thumb {
     background: rgba(29, 29, 27, 0.16);
-    border: 3px solid var(--color-canvas);
+    border: 3px solid var(--color-surface);
     border-radius: 100px;
   }
   ::-webkit-scrollbar-thumb:hover {

@@ -19,7 +19,7 @@ const schema = z.object({
 type FormValues = z.infer<typeof schema>;
 
 const INPUT =
-  'h-[50px] w-full rounded-xl border border-[var(--color-border-mid)] bg-canvas px-4 text-[15px] text-ink transition-colors placeholder:text-ink-muted hover:border-ink-muted focus:border-ink focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-ink';
+  'h-[50px] w-full rounded-xl border border-[var(--color-border-mid)] bg-surface px-4 text-[15px] text-ink transition-colors placeholder:text-ink-muted hover:border-ink-muted focus:border-ink focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-ink';
 
 export function WaitlistSection() {
   const [interest, setInterest] = useState<(typeof INTERESTS)[number]>('Both');
@@ -39,7 +39,7 @@ export function WaitlistSection() {
     <section
       id="waitlist"
       aria-labelledby="waitlist-title"
-      className="bg-[linear-gradient(135deg,var(--color-lemon)_0%,var(--color-pink)_100%)] py-[clamp(56px,7vw,112px)]"
+      className="bg-lemon-wash py-[clamp(56px,7vw,112px)]"
     >
       <div className="container-page">
         <div className="grid grid-cols-1 items-center gap-9 lg:grid-cols-[1.1fr_1fr] lg:gap-20">
@@ -50,15 +50,15 @@ export function WaitlistSection() {
             >
               {WAITLIST.title}
             </h2>
-            <p className="max-w-[44ch] text-[17px] leading-[1.65] text-ink/75">
+            <p className="max-w-[44ch] text-[17px] leading-[1.65] text-ink-soft">
               {WAITLIST.body}
             </p>
           </ScrollReveal>
 
-          <ScrollReveal className="rounded-[28px] bg-surface p-[clamp(24px,3vw,40px)] shadow-[0_30px_60px_-24px_rgba(29,29,27,0.3)]">
+          <ScrollReveal className="rounded-[28px] border border-[var(--color-border-hairline)] bg-surface p-[clamp(24px,3vw,40px)]">
             {submitted ? (
-              <div className="flex items-start gap-3 rounded-xl border border-sage/30 bg-sage/10 p-4 text-sm leading-[1.55] text-ink-soft">
-                <Check className="mt-px h-[18px] w-[18px] flex-shrink-0 text-sage" aria-hidden />
+              <div className="flex items-start gap-3 rounded-xl border border-[var(--color-border-mid)] bg-lemon-wash p-4 text-sm leading-[1.55] text-ink-soft">
+                <Check className="mt-px h-[18px] w-[18px] flex-shrink-0 text-ink" aria-hidden />
                 <span>
                   <b className="font-semibold text-ink">{WAITLIST.done}</b>
                 </span>
@@ -129,7 +129,7 @@ export function WaitlistSection() {
 
                 <button
                   type="submit"
-                  className="inline-flex h-[52px] w-full items-center justify-center rounded-[var(--radius-pill)] border-[1.5px] border-ink bg-ink px-7 text-sm font-semibold text-white transition-colors hover:border-sage hover:bg-sage"
+                  className="inline-flex h-[52px] w-full items-center justify-center rounded-[var(--radius-pill)] border-[1.5px] border-ink bg-ink px-7 text-sm font-semibold text-white transition-colors hover:border-ink-soft hover:bg-ink-soft"
                 >
                   {WAITLIST.submit}
                 </button>

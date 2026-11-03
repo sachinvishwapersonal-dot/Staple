@@ -27,7 +27,7 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
           />
           <motion.nav
             aria-label="Mobile navigation"
-            className="fixed right-0 top-0 z-[191] flex h-full w-[min(340px,88vw)] flex-col bg-canvas p-6 shadow-[-24px_0_60px_rgba(29,29,27,0.18)]"
+            className="fixed right-0 top-0 z-[191] flex h-full w-[min(340px,88vw)] flex-col bg-surface p-6 shadow-[-24px_0_60px_rgba(29,29,27,0.18)]"
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
@@ -38,7 +38,7 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
                 type="button"
                 onClick={onClose}
                 aria-label="Close menu"
-                className="flex h-11 w-11 items-center justify-center rounded-full text-ink-soft hover:bg-subtle hover:text-ink"
+                className="flex h-11 w-11 items-center justify-center rounded-full text-ink-soft hover:bg-lemon-wash hover:text-ink"
               >
                 <X className="h-5 w-5" aria-hidden />
               </button>

@@ -1,18 +1,25 @@
+import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { HERO } from '@/config/site';
-import { HeroVideo } from './hero-video';
 
 export function HeroSection() {
   return (
     <section
       aria-labelledby="hero-title"
-      className="relative isolate flex min-h-[clamp(580px,92svh,900px)] items-end overflow-hidden bg-night text-white"
+      className="relative isolate flex min-h-[clamp(580px,92svh,900px)] items-end overflow-hidden bg-ink text-white"
     >
-      <HeroVideo />
+      <Image
+        src="/assets/hero/hero.jpg"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover"
+      />
       <div
         aria-hidden
-        className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(27,22,38,0.8)_0%,rgba(27,22,38,0.55)_60%,rgba(27,22,38,0.35)_100%),linear-gradient(0deg,rgba(27,22,38,0.7)_0%,transparent_40%)]"
+        className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(29,29,27,0.8)_0%,rgba(29,29,27,0.55)_60%,rgba(29,29,27,0.35)_100%),linear-gradient(0deg,rgba(29,29,27,0.7)_0%,transparent_40%)]"
       />
 
       <div className="container-page relative z-[1] flex flex-col items-center pb-[clamp(48px,7vw,104px)] pt-[clamp(140px,16vw,200px)] text-center">

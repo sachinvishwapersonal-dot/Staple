@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Fraunces, Inter, JetBrains_Mono } from 'next/font/google';
+import { Carlito, Inter, JetBrains_Mono } from 'next/font/google';
 import { SiteChrome } from '@/components/layout/site-chrome';
 import { SiteFooter } from '@/components/layout/site-footer';
 import { SITE } from '@/config/site';
@@ -12,12 +12,13 @@ const inter = Inter({
   weight: ['400', '500', '600', '700'],
 });
 
-const fraunces = Fraunces({
+// Headings use Calibri where it is installed. Carlito has the same metrics and
+// is the web fallback, since Calibri cannot be served from the site.
+const carlito = Carlito({
   subsets: ['latin'],
-  variable: '--font-fraunces',
+  variable: '--font-carlito',
   display: 'swap',
-  style: ['normal', 'italic'],
-  axes: ['opsz'],
+  weight: ['400', '700'],
 });
 
 const mono = JetBrains_Mono({
@@ -52,7 +53,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${fraunces.variable} ${mono.variable}`}>
+    <html lang="en" className={`${inter.variable} ${carlito.variable} ${mono.variable}`}>
       <body>
         <a
           href="#content"

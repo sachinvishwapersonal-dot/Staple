@@ -8,9 +8,9 @@ const base =
   'inline-flex items-center justify-center gap-2.5 rounded-[var(--radius-pill)] font-body text-sm font-semibold tracking-[0.02em] whitespace-nowrap transition-[background,border-color,color,transform] duration-[260ms] ease-[cubic-bezier(0.25,0.1,0.25,1)] active:translate-y-px disabled:cursor-not-allowed disabled:opacity-60';
 
 const variants: Record<Variant, string> = {
-  dark: 'border-[1.5px] border-ink bg-ink text-white hover:border-sage hover:bg-sage',
+  dark: 'border-[1.5px] border-ink bg-ink text-white hover:border-ink-soft hover:bg-ink-soft',
   ghost:
-    'border-[1.5px] border-[var(--color-border-mid)] bg-transparent text-ink hover:border-ink hover:bg-subtle',
+    'border-[1.5px] border-[var(--color-border-mid)] bg-transparent text-ink hover:border-ink hover:bg-lemon-wash',
   lemon:
     'border-[1.5px] border-lemon bg-lemon text-ink hover:border-lemon-hover hover:bg-lemon-hover',
 };

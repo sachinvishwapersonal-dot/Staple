@@ -37,7 +37,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
   if (!product) notFound();
 
   const other = PRODUCT_LIST.find((item) => item.slug !== product.slug);
-  const wash = product.wash === 'lemon' ? 'bg-lemon-wash' : 'bg-pink-wash';
 
   return (
     <>
@@ -52,7 +51,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
         <div className="grid grid-cols-1 items-start gap-[clamp(32px,5vw,80px)] lg:grid-cols-[1.05fr_1fr]">
           <ScrollReveal>
-            <div className={cn('relative aspect-[4/4.4] overflow-hidden rounded-[28px]', wash)}>
+            <div className="relative aspect-[4/4.4] overflow-hidden rounded-[28px] bg-lemon-wash">
               <Image
                 src={product.image}
                 alt={product.imageAlt}
@@ -101,7 +100,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
         </div>
       </section>
 
-      <section id="label" className="bg-surface py-[clamp(64px,8vw,120px)]">
+      <section id="label" className="bg-lemon-wash py-[clamp(64px,8vw,120px)]">
         <div className="container-page grid gap-[clamp(28px,5vw,80px)] lg:grid-cols-[1fr_1.4fr]">
           <ScrollReveal>
             <h2 className={SECTION_TITLE}>The label, as text</h2>
@@ -163,7 +162,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
               <article
                 className={cn(
                   'flex h-full flex-col rounded-[24px] p-[clamp(24px,3vw,40px)]',
-                  index === 0 ? wash : 'bg-subtle',
+                  index === 0 ? 'bg-lemon-wash' : 'border border-[var(--color-border-hairline)] bg-surface',
                 )}
               >
                 <h3 className="mb-3 font-display text-[clamp(24px,2.4vw,32px)] font-normal leading-[1.12]">

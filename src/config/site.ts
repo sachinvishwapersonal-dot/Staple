@@ -26,15 +26,10 @@ export const HERO = {
 
 export const WHY = {
   title: 'Why Staple',
-  intro:
-    'Founder Pratham Bhatia spent years trying to get fit and could not find out what was in his supplements.',
-  listTitle: 'What he found',
-  found: [
-    'Labels that did not say how much EPA and DHA a capsule held.',
-    '"Magnesium" that could mean four different compounds.',
-    'Blends that gave one total weight and hid the amounts.',
+  body: [
+    'Many supplements sold in India are hard to compare. Omega-3 labels often give the weight of the fish oil rather than how much EPA and DHA it holds. Magnesium labels often give the weight of the compound rather than the magnesium in it. Blends list one total weight for several ingredients.',
+    'Staple will sell two everyday supplements with these numbers stated clearly on the label, and will publish lab results for each batch once testing begins.',
   ],
-  close: 'Staple states the number.',
 } as const;
 
 export const PUBLISH = {
