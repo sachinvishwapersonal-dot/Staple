@@ -10,27 +10,50 @@
    ==================================================================== */
 
 @theme {
-  /* Palette: lemon, ink and white only. Lemon-wash is the tinted panel. */
+  /* Palette v0.4 — matched to the palette Ritual runs today (read from
+     ritual.com's own colour tokens, Nov 2026). Navy carries all text; yellow
+     lives in photography and big fields; warm creams and cool greys do the
+     quiet work in between. */
   --color-surface: #FFFFFF;
 
-  /* Editorial Ink */
-  --color-ink: #1D1D1B;
-  --color-ink-soft: #57534E;
-  --color-ink-muted: #8A857D;
+  /* Navy — every headline, link, button and line. */
+  --color-ink: #142B6F;
+  --color-ink-soft: #62719F;
+  --color-ink-muted: #8C97BA;
 
-  /* Accent */
-  --color-lemon: #F6E77A;
-  --color-lemon-hover: #EED956;
-  --color-lemon-wash: #FEF9C3;
+  /* Signature yellow — Omega-3 product colour and large flat fields. */
+  --color-lemon: #FFD600;
+  --color-lemon-hover: #F0C800;
+  --color-lemon-wash: #FFF7CC;
+  --color-butter: #FFEF99;
+  --color-amber: #E4C25E; /* ochre: shadows, rules, marks. Never text. */
+
+  /* Warm neutrals — long sections and soft panels. */
+  --color-cream: #F6EACB;
+  --color-paper: #FCF8EE;
+
+  /* Cool neutrals. Moon is the Magnesium product colour; dusk gradient
+     (navy → violet → ember) is reserved for Magnesium and evening visuals. */
+  --color-moon: #C3CFD5;
+  --color-moon-wash: #EAEEF0;
+  --color-mist: #F5F7F8;
+  --color-dusk-violet: #5B4B9A;
+  --color-dusk-ember: #E9A46A;
 
   /* Borders */
-  --color-border-hairline: rgba(29, 29, 27, 0.1);
-  --color-border-mid: rgba(29, 29, 27, 0.18);
-  --color-border-strong: rgba(29, 29, 27, 0.32);
+  --color-border-hairline: rgba(20, 43, 111, 0.1);
+  --color-border-mid: #D0D5E2;
+  --color-border-strong: rgba(20, 43, 111, 0.32);
 
-  /* Typography — Calibri headings (Carlito fallback), Inter body, JetBrains Mono specs */
-  --font-display: Calibri, var(--font-carlito), Carlito, ui-sans-serif, system-ui, sans-serif;
-  --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  /* Typography — the Ritual pairing: geometric sans for headings and body,
+     Times-style serif italic for one accent phrase per headline.
+     Ritual uses CircularXX (Lineto) and Dutch801 Rm BT (Bitstream/Monotype).
+     Both are commercial fonts; they are listed first so they take over once
+     Staple buys web licences and adds @font-face rules for the files.
+     Until then the free stand-ins load: DM Sans and Tinos (Times metrics). */
+  --font-display: "CircularXX", var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-body: "CircularXX", var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Dutch801 Rm BT", var(--font-tinos), "Times New Roman", serif;
   --font-mono: var(--font-jetbrains), ui-monospace, "SF Mono", Menlo, monospace;
 
   /* Radii */
@@ -42,7 +65,7 @@
   --ease-std: cubic-bezier(0.25, 0.1, 0.25, 1);
 
   /* Editorial rhythm */
-  --rule: rgba(29, 29, 27, 0.14);
+  --rule: rgba(20, 43, 111, 0.14);
 }
 
 @layer base {
@@ -78,8 +101,8 @@
     margin: 0;
     line-height: 1.12;
     font-family: var(--font-display);
-    font-weight: 400;
-    letter-spacing: -0.02em;
+    font-weight: 500;
+    letter-spacing: -0.025em;
     font-optical-sizing: auto;
     font-style: normal;
     text-wrap: balance;
@@ -147,11 +170,29 @@
     padding-inline: clamp(20px, 4vw, 48px);
   }
 
+  /* Italic serif accent inside a sans headline. */
+  .accent {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.035em;
+  }
+
+  /* Short rule that sits above a standalone paragraph. */
+  .dash::before {
+    content: "";
+    display: block;
+    width: 22px;
+    height: 2px;
+    margin-bottom: 18px;
+    background: currentColor;
+  }
+
   .eyebrow {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.18em;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--color-ink-muted);
     font-variant-numeric: tabular-nums;
@@ -229,12 +270,12 @@
     background: transparent;
   }
   ::-webkit-scrollbar-thumb {
-    background: rgba(29, 29, 27, 0.16);
+    background: rgba(20, 43, 111, 0.16);
     border: 3px solid var(--color-surface);
     border-radius: 100px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: rgba(29, 29, 27, 0.28);
+    background: rgba(20, 43, 111, 0.28);
   }
 }
 

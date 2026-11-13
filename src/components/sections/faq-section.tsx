@@ -7,7 +7,7 @@ export function FaqSection() {
     <section id="faq" className="container-page pb-[clamp(64px,8vw,120px)]">
       <div className="grid gap-[clamp(28px,5vw,80px)] lg:grid-cols-[1fr_1.2fr]">
         <ScrollReveal>
-          <h2 className="font-display text-[clamp(36px,4.6vw,64px)] font-normal leading-[1.04] tracking-[-0.03em]">
+          <h2 className="font-display text-[clamp(36px,4.6vw,64px)] font-medium leading-[1.04] tracking-[-0.03em]">
             {FAQ.title}
           </h2>
         </ScrollReveal>

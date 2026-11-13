@@ -1,24 +1,26 @@
 import type { Metadata } from 'next';
-import { Carlito, Inter, JetBrains_Mono } from 'next/font/google';
+import { DM_Sans, JetBrains_Mono, Tinos } from 'next/font/google';
 import { SiteChrome } from '@/components/layout/site-chrome';
 import { SiteFooter } from '@/components/layout/site-footer';
 import { SITE } from '@/config/site';
 import './globals.css';
 
-const inter = Inter({
+// Free stand-ins for Ritual's licensed type pairing (see globals.css):
+// DM Sans for the geometric sans (CircularXX), Tinos for the Times-style
+// serif (Dutch801 Rm BT).
+const dmSans = DM_Sans({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-dm-sans',
   display: 'swap',
   weight: ['400', '500', '600', '700'],
 });
 
-// Headings use Calibri where it is installed. Carlito has the same metrics and
-// is the web fallback, since Calibri cannot be served from the site.
-const carlito = Carlito({
+const tinos = Tinos({
   subsets: ['latin'],
-  variable: '--font-carlito',
+  variable: '--font-tinos',
   display: 'swap',
   weight: ['400', '700'],
+  style: ['normal', 'italic'],
 });
 
 const mono = JetBrains_Mono({
@@ -53,7 +55,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${carlito.variable} ${mono.variable}`}>
+    <html lang="en" className={`${dmSans.variable} ${tinos.variable} ${mono.variable}`}>
       <body>
         <a
           href="#content"
