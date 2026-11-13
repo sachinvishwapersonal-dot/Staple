@@ -39,25 +39,25 @@ export function WaitlistSection() {
     <section
       id="waitlist"
       aria-labelledby="waitlist-title"
-      className="bg-lemon-wash py-[clamp(56px,7vw,112px)]"
+      className="bg-lemon py-[clamp(56px,7vw,112px)]"
     >
       <div className="container-page">
         <div className="grid grid-cols-1 items-center gap-9 lg:grid-cols-[1.1fr_1fr] lg:gap-20">
           <ScrollReveal>
             <h2
               id="waitlist-title"
-              className="mb-5 font-display text-[clamp(40px,6vw,88px)] font-normal leading-[1] tracking-[-0.035em]"
+              className="mb-5 font-display text-[clamp(40px,6vw,88px)] font-medium leading-[1] tracking-[-0.035em]"
             >
               {WAITLIST.title}
             </h2>
-            <p className="max-w-[44ch] text-[17px] leading-[1.65] text-ink-soft">
+            <p className="max-w-[44ch] text-[17px] font-medium leading-[1.65] text-ink">
               {WAITLIST.body}
             </p>
           </ScrollReveal>
 
-          <ScrollReveal className="rounded-[28px] border border-[var(--color-border-hairline)] bg-surface p-[clamp(24px,3vw,40px)]">
+          <ScrollReveal className="bg-surface p-[clamp(24px,3vw,40px)] shadow-[0_30px_60px_-30px_rgba(120,92,0,0.45)]">
             {submitted ? (
-              <div className="flex items-start gap-3 rounded-xl border border-[var(--color-border-mid)] bg-lemon-wash p-4 text-sm leading-[1.55] text-ink-soft">
+              <div className="flex items-start gap-3 rounded-xl border border-[var(--color-border-mid)] bg-butter p-4 text-sm leading-[1.55] text-ink-soft">
                 <Check className="mt-px h-[18px] w-[18px] flex-shrink-0 text-ink" aria-hidden />
                 <span>
                   <b className="font-semibold text-ink">{WAITLIST.done}</b>

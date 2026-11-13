@@ -13,19 +13,19 @@ export const NAV_LINKS = [
   { label: 'Why Staple', href: '/#why' },
   { label: 'Products', href: '/#products' },
   { label: 'Guides', href: '/#guides' },
-  { label: 'Status', href: '/#status' },
   { label: 'FAQ', href: '/#faq' },
 ] as const;
 
 export const HERO = {
   title: 'The science of feeling normal again.',
-  body: 'An omega-3 and a magnesium supplement, in development. Dose, form and lab results will be published before orders open.',
+  accent: 'normal again.',
   primary: 'Join the waitlist',
   secondary: 'Label guides',
 } as const;
 
 export const WHY = {
   title: 'Why Staple',
+  accent: 'Staple',
   body: [
     'Many supplements sold in India are hard to compare. Omega-3 labels often give the weight of the fish oil rather than how much EPA and DHA it holds. Magnesium labels often give the weight of the compound rather than the magnesium in it. Blends list one total weight for several ingredients.',
     'Staple will sell two everyday supplements with these numbers stated clearly on the label, and will publish lab results for each batch once testing begins.',
@@ -34,6 +34,8 @@ export const WHY = {
 
 export const PUBLISH = {
   title: 'Published for each product',
+  accent: 'each product',
+  lead: 'Four things every Staple product page will show, before you buy.',
   items: [
     {
       title: 'Dose',
@@ -57,6 +59,7 @@ export const PUBLISH = {
 
 export const PRODUCTS = {
   title: 'Products in development',
+  accent: 'in development',
   intro: 'Prices follow the final label.',
   items: PRODUCT_LIST,
   caption: 'Pack concept. Formulation and label not final.',
@@ -64,6 +67,7 @@ export const PRODUCTS = {
 
 export const GUIDES = {
   title: 'Reading a label',
+  accent: 'a label',
   items: [
     {
       title: 'EPA and DHA, not oil weight',

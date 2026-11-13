@@ -51,7 +51,7 @@ export function SiteFooter() {
         </div>
 
         <div className="flex flex-wrap justify-between gap-x-6 gap-y-3 py-7 text-xs leading-[1.7] text-white/50">
-          <span>© Staple Wellness Pvt Ltd</span>
+          <span>© Staple Wellness </span>
           <span>{FOOTER.legal}</span>
         </div>
       </div>
